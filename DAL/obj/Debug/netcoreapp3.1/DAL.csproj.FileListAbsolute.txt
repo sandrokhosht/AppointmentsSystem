@@ -1,0 +1,12 @@
+C:\Users\Sandro\source\repos\AppointmentsSystem\DAL\bin\Debug\netcoreapp3.1\DAL.deps.json
+C:\Users\Sandro\source\repos\AppointmentsSystem\DAL\bin\Debug\netcoreapp3.1\DAL.runtimeconfig.json
+C:\Users\Sandro\source\repos\AppointmentsSystem\DAL\bin\Debug\netcoreapp3.1\DAL.runtimeconfig.dev.json
+C:\Users\Sandro\source\repos\AppointmentsSystem\DAL\bin\Debug\netcoreapp3.1\DAL.dll
+C:\Users\Sandro\source\repos\AppointmentsSystem\DAL\bin\Debug\netcoreapp3.1\DAL.pdb
+C:\Users\Sandro\source\repos\AppointmentsSystem\DAL\obj\Debug\netcoreapp3.1\DAL.csprojAssemblyReference.cache
+C:\Users\Sandro\source\repos\AppointmentsSystem\DAL\obj\Debug\netcoreapp3.1\DAL.AssemblyInfoInputs.cache
+C:\Users\Sandro\source\repos\AppointmentsSystem\DAL\obj\Debug\netcoreapp3.1\DAL.AssemblyInfo.cs
+C:\Users\Sandro\source\repos\AppointmentsSystem\DAL\obj\Debug\netcoreapp3.1\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Sandro\source\repos\AppointmentsSystem\DAL\obj\Debug\netcoreapp3.1\DAL.dll
+C:\Users\Sandro\source\repos\AppointmentsSystem\DAL\obj\Debug\netcoreapp3.1\DAL.pdb
+C:\Users\Sandro\source\repos\AppointmentsSystem\DAL\obj\Debug\netcoreapp3.1\DAL.genruntimeconfig.cache
