@@ -1,6 +1,8 @@
 ﻿using AppointmentsSystem.Models;
+using DAL.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Service.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -13,13 +15,26 @@ namespace AppointmentsSystem.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IUOW _uow;
+
+        public HomeController(ILogger<HomeController> logger, IUOW uOW)
         {
             _logger = logger;
+            _uow = uOW;
         }
 
         public IActionResult Index()
         {
+            var ap = new Appointment()
+            {
+                FirstName = "Sandro",
+                LastName = "Khoshtaria",
+                Description = "Headache",
+                Gender = 'M',
+                PhoneNumber = "591600149",
+            };
+            _uow.Appointment.Create(ap);
+            _uow.Commit();
             return View();
         }
 

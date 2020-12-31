@@ -14,7 +14,7 @@ namespace DAL.Entities
 
         public string PhoneNumber { get; set; }
 
-        public int Gender { get; set; }
+        public char Gender { get; set; }
 
         public string Description { get; set; }
     }

@@ -1,0 +1,12 @@
+C:\Users\Sandro\source\repos\AppointmentsSystem\Service\bin\Debug\netcoreapp3.1\Service.deps.json
+C:\Users\Sandro\source\repos\AppointmentsSystem\Service\bin\Debug\netcoreapp3.1\Service.dll
+C:\Users\Sandro\source\repos\AppointmentsSystem\Service\bin\Debug\netcoreapp3.1\Service.pdb
+C:\Users\Sandro\source\repos\AppointmentsSystem\Service\bin\Debug\netcoreapp3.1\DAL.dll
+C:\Users\Sandro\source\repos\AppointmentsSystem\Service\bin\Debug\netcoreapp3.1\DAL.pdb
+C:\Users\Sandro\source\repos\AppointmentsSystem\Service\obj\Debug\netcoreapp3.1\Service.csprojAssemblyReference.cache
+C:\Users\Sandro\source\repos\AppointmentsSystem\Service\obj\Debug\netcoreapp3.1\Service.AssemblyInfoInputs.cache
+C:\Users\Sandro\source\repos\AppointmentsSystem\Service\obj\Debug\netcoreapp3.1\Service.AssemblyInfo.cs
+C:\Users\Sandro\source\repos\AppointmentsSystem\Service\obj\Debug\netcoreapp3.1\Service.csproj.CoreCompileInputs.cache
+C:\Users\Sandro\source\repos\AppointmentsSystem\Service\obj\Debug\netcoreapp3.1\Service.csproj.CopyComplete
+C:\Users\Sandro\source\repos\AppointmentsSystem\Service\obj\Debug\netcoreapp3.1\Service.dll
+C:\Users\Sandro\source\repos\AppointmentsSystem\Service\obj\Debug\netcoreapp3.1\Service.pdb

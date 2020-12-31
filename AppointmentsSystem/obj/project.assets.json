@@ -1521,6 +1521,19 @@
         "runtime": {
           "bin/placeholder/DAL.dll": {}
         }
+      },
+      "Service/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "DAL": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Service.dll": {}
+        }
       }
     }
   },
@@ -5770,12 +5783,18 @@
       "type": "project",
       "path": "../DAL/DAL.csproj",
       "msbuildProject": "../DAL/DAL.csproj"
+    },
+    "Service/1.0.0": {
+      "type": "project",
+      "path": "../Service/Service.csproj",
+      "msbuildProject": "../Service/Service.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
       "DAL >= 1.0.0",
-      "Microsoft.EntityFrameworkCore.Design >= 5.0.1"
+      "Microsoft.EntityFrameworkCore.Design >= 5.0.1",
+      "Service >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -5807,6 +5826,9 @@
           "projectReferences": {
             "C:\\Users\\Sandro\\source\\repos\\AppointmentsSystem\\DAL\\DAL.csproj": {
               "projectPath": "C:\\Users\\Sandro\\source\\repos\\AppointmentsSystem\\DAL\\DAL.csproj"
+            },
+            "C:\\Users\\Sandro\\source\\repos\\AppointmentsSystem\\Service\\Service.csproj": {
+              "projectPath": "C:\\Users\\Sandro\\source\\repos\\AppointmentsSystem\\Service\\Service.csproj"
             }
           }
         }

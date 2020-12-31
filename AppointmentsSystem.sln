@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppointmentsSystem", "AppointmentsSystem\AppointmentsSystem.csproj", "{69F55909-B007-4F81-93B6-9586B6409E3D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{327A34C8-8E67-4F9E-AAEB-E3FF18C876E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "DAL\DAL.csproj", "{327A34C8-8E67-4F9E-AAEB-E3FF18C876E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{382C6ADC-FE85-4F8C-A746-371708A6C945}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{327A34C8-8E67-4F9E-AAEB-E3FF18C876E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{327A34C8-8E67-4F9E-AAEB-E3FF18C876E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{327A34C8-8E67-4F9E-AAEB-E3FF18C876E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{382C6ADC-FE85-4F8C-A746-371708A6C945}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{382C6ADC-FE85-4F8C-A746-371708A6C945}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{382C6ADC-FE85-4F8C-A746-371708A6C945}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{382C6ADC-FE85-4F8C-A746-371708A6C945}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
