@@ -7,7 +7,7 @@ namespace Service.Interfaces
     public interface IUOW : IDisposable
     {
 
-        IAppointmentRepository Appointment { get; }
+         IAppointmentRepository Appointment { get; }
 
         void Commit();
     }

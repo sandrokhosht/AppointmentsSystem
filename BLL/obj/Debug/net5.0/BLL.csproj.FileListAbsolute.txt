@@ -1,0 +1,17 @@
+C:\Users\Sandro\source\repos\AppointmentsSystem\BLL\bin\Debug\net5.0\BLL.deps.json
+C:\Users\Sandro\source\repos\AppointmentsSystem\BLL\bin\Debug\net5.0\BLL.dll
+C:\Users\Sandro\source\repos\AppointmentsSystem\BLL\bin\Debug\net5.0\ref\BLL.dll
+C:\Users\Sandro\source\repos\AppointmentsSystem\BLL\bin\Debug\net5.0\BLL.pdb
+C:\Users\Sandro\source\repos\AppointmentsSystem\BLL\bin\Debug\net5.0\DAL.dll
+C:\Users\Sandro\source\repos\AppointmentsSystem\BLL\bin\Debug\net5.0\Service.dll
+C:\Users\Sandro\source\repos\AppointmentsSystem\BLL\bin\Debug\net5.0\Service.pdb
+C:\Users\Sandro\source\repos\AppointmentsSystem\BLL\bin\Debug\net5.0\DAL.pdb
+C:\Users\Sandro\source\repos\AppointmentsSystem\BLL\obj\Debug\net5.0\BLL.csprojAssemblyReference.cache
+C:\Users\Sandro\source\repos\AppointmentsSystem\BLL\obj\Debug\net5.0\BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sandro\source\repos\AppointmentsSystem\BLL\obj\Debug\net5.0\BLL.AssemblyInfoInputs.cache
+C:\Users\Sandro\source\repos\AppointmentsSystem\BLL\obj\Debug\net5.0\BLL.AssemblyInfo.cs
+C:\Users\Sandro\source\repos\AppointmentsSystem\BLL\obj\Debug\net5.0\BLL.csproj.CoreCompileInputs.cache
+C:\Users\Sandro\source\repos\AppointmentsSystem\BLL\obj\Debug\net5.0\BLL.csproj.CopyComplete
+C:\Users\Sandro\source\repos\AppointmentsSystem\BLL\obj\Debug\net5.0\BLL.dll
+C:\Users\Sandro\source\repos\AppointmentsSystem\BLL\obj\Debug\net5.0\ref\BLL.dll
+C:\Users\Sandro\source\repos\AppointmentsSystem\BLL\obj\Debug\net5.0\BLL.pdb

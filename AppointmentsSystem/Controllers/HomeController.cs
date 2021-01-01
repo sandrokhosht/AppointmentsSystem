@@ -1,4 +1,5 @@
 ﻿using AppointmentsSystem.Models;
+using BLL.Interfaces;
 using DAL.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -14,28 +15,39 @@ namespace AppointmentsSystem.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IAppointmentOperation _appointmentOperation;
 
-        private readonly IUOW _uow;
-
-        public HomeController(ILogger<HomeController> logger, IUOW uOW)
+        public HomeController(ILogger<HomeController> logger, IAppointmentOperation appointmentOperation)
         {
             _logger = logger;
-            _uow = uOW;
+            _appointmentOperation = appointmentOperation;
         }
 
         public IActionResult Index()
         {
-            var ap = new Appointment()
+            AppointmentListVM model = new AppointmentListVM()
             {
-                FirstName = "Sandro",
-                LastName = "Khoshtaria",
-                Description = "Headache",
-                Gender = 'M',
-                PhoneNumber = "591600149",
+                Appointments = _appointmentOperation.GetAll()
             };
-            _uow.Appointment.Create(ap);
-            _uow.Commit();
-            return View();
+            return View(model);
+        }
+
+        public IActionResult Create()
+        {
+            var model = new AppointmentCUVM { };
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Create(AppointmentCUVM model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(new AppointmentCUVM { });
+            }
+
+            _appointmentOperation.CreateAppointment(model.Appointment);
+            return RedirectToAction(nameof(Index));
         }
 
         public IActionResult Privacy()

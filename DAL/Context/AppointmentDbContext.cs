@@ -22,12 +22,12 @@ namespace DAL.Context
 
             modelBuilder.Entity<Appointment>()
                 .Property(a => a.FirstName)
-                .HasMaxLength(50)
+                .HasMaxLength(20)
                 .IsRequired();
 
             modelBuilder.Entity<Appointment>()
                 .Property(a => a.LastName)
-                .HasMaxLength(50)
+                .HasMaxLength(20)
                 .IsRequired();
 
             modelBuilder.Entity<Appointment>()

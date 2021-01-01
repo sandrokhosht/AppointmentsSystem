@@ -1,3 +1,6 @@
+using AutoMapper;
+using BLL.Interfaces;
+using BLL.Operations;
 using DAL.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -34,7 +37,8 @@ namespace AppointmentsSystem
             });
 
             services.AddScoped<IUOW, UOW>();
-
+            services.AddAutoMapper(typeof(BLL.Mappings.MapProfile).Assembly);
+            services.AddTransient<IAppointmentOperation, AppointmentOperation>();
             services.AddControllersWithViews();
         }
 

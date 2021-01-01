@@ -1,0 +1,63 @@
+﻿@model AppointmentCUVM
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Add an appointment</h1>
+<div>
+    <form asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row">
+            <div class="col-8">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label asp-for="Appointment.FirstName">First Name</label>
+                            <input class="form-control" asp-for="Appointment.FirstName" />
+                            <span asp-validation-for="Appointment.FirstName" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label asp-for="Appointment.LastName">Last Name</label>
+                            <input class="form-control" asp-for="Appointment.LastName" />
+                            <span asp-validation-for="Appointment.LastName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label asp-for="Appointment.PhoneNumber">Phone Number</label>
+                            <input class="form-control" asp-for="Appointment.PhoneNumber" />
+                            <span asp-validation-for="Appointment.PhoneNumber" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label asp-for="Appointment.Gender">Gender</label>
+                            <select class="form-control" asp-for="Appointment.Gender">
+                                <option value="M">Male</option>
+                                <option value="F">Female</option>
+                            </select>
+                            <span asp-validation-for="Appointment.Gender" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label asp-for="Appointment.Description">Description</label>
+                            <input class="form-control" asp-for="Appointment.Description" />
+                            <span asp-validation-for="Appointment.Description" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">Create</button>
+                            <a asp-action="Index">Return</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+

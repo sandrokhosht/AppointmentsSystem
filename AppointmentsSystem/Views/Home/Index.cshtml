@@ -1,8 +1,38 @@
-﻿@{
+﻿@model AppointmentListVM
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="mb-2">
+    <a type="button" class="btn btn-success" asp-action="Create">Create</a>
 </div>
+
+<table class="table table-bordered">
+    <thead class="bg-dark">
+        <tr>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Phone Number</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Description</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Appointments)
+        {
+        <tr>
+            <td>@item.FirstName</td>
+            <td>@item.LastName</td>
+            <td>@item.PhoneNumber</td>
+            <td>@item.Gender</td>
+            <td>@item.Description</td>
+            <td>
+                <a class="btn btn-info">View</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+
+
+</table>
