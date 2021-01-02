@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace AppointmentsSystem.Models
 {
-    public class AppointmentDetailsVM : AppointmentReadDTO
+    public class AppointmentDetailsVM
     {
-      
+      public AppointmentReadDTO Appointment { get; set; }
     }
 }

@@ -57,10 +57,13 @@ namespace AppointmentsSystem.Controllers
                 return NotFound();
             }
 
-            // casting to int from int? , to avoid adding more code
-            var model = _appointmentOperation.GetAppointment((int)id);
+            AppointmentDetailsVM model = new AppointmentDetailsVM
+            {
+                // casting to int from int? , to avoid adding more code
+                Appointment = _appointmentOperation.GetAppointment((int)id)
+            };
 
-            if(model == null)
+            if(model.Appointment == null)
             {
                 return NotFound();
             }
