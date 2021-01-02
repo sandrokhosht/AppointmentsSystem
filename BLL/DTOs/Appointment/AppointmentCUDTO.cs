@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BLL.DTOs.Appointment
 {
-    public class AppointmentCUDTO
+    public class AppointmentCUDTO // CU - Create & Update
     {
         public int Id { get; set; }
 

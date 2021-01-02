@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AppointmentsSystem.Models
 {
-    public class AppointmentCUVM
+    public class AppointmentCUVM // CU - Create & Update
     {
         public AppointmentCUDTO Appointment { get; set; }
     }

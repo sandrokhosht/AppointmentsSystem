@@ -13,9 +13,12 @@ namespace BLL.Mappings
     {
         public MapProfile()
         {
-            CreateMap<Appointment, AppointmentListDTO>();
+            CreateMap<Appointment, AppointmentReadDTO>();
 
             CreateMap<AppointmentCUDTO, Appointment>();
+
+            CreateMap<AppointmentReadDTO, Appointment>();
+
         }
     }
 }

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace AppointmentsSystem.Models
 {
-    public class AppointmentListVM
+    public class AppointmentDetailsVM : AppointmentReadDTO
     {
-        public IEnumerable<AppointmentReadDTO> Appointments { get; set; }
+      
     }
 }

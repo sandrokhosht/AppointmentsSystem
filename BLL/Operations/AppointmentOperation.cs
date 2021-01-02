@@ -22,10 +22,10 @@ namespace BLL.Operations
             _mapper = mapper;
         }
 
-        public IEnumerable<AppointmentListDTO> GetAll()
+        public IEnumerable<AppointmentReadDTO> GetAll()
         {
             var appointments = _uow.Appointment.FindAll();
-            return _mapper.Map<IEnumerable<AppointmentListDTO>>(appointments);
+            return _mapper.Map<IEnumerable<AppointmentReadDTO>>(appointments);
         }
 
         public void CreateAppointment(AppointmentCUDTO model)
@@ -33,6 +33,13 @@ namespace BLL.Operations
             var appointment = _mapper.Map<Appointment>(model);
             _uow.Appointment.Create(appointment);
             _uow.Commit();
+        }
+
+        public AppointmentReadDTO GetAppointment(int id)
+        {
+            var model = _uow.Appointment.Get(id);
+            var appointment = _mapper.Map<AppointmentReadDTO>(model);
+            return appointment;
         }
     }
 }

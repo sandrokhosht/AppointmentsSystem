@@ -43,11 +43,29 @@ namespace AppointmentsSystem.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(new AppointmentCUVM { });
+                return View( new AppointmentCUVM() );
             }
 
             _appointmentOperation.CreateAppointment(model.Appointment);
             return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Details(int? id)
+        {
+           if (id == null)
+            {
+                return NotFound();
+            }
+
+            // casting to int from int? , to avoid adding more code
+            var model = _appointmentOperation.GetAppointment((int)id);
+
+            if(model == null)
+            {
+                return NotFound();
+            }
+            
+            return View(model);
         }
 
         public IActionResult Privacy()
