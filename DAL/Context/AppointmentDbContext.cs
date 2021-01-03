@@ -1,4 +1,5 @@
 ﻿using DAL.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using System.Text;
 
 namespace DAL.Context
 {
-    public class AppointmentDbContext : DbContext
+    public class AppointmentDbContext : IdentityDbContext<User>
     {
         public AppointmentDbContext(DbContextOptions options)
             : base(options)
@@ -15,6 +16,7 @@ namespace DAL.Context
         }
 
         public DbSet<Appointment> Appointments { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

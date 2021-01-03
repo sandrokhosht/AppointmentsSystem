@@ -1,6 +1,7 @@
 ﻿using AppointmentsSystem.Models;
 using BLL.Interfaces;
 using DAL.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Service.Interfaces;
@@ -12,6 +13,8 @@ using System.Threading.Tasks;
 
 namespace AppointmentsSystem.Controllers
 {
+
+    
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

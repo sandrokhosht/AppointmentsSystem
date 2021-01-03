@@ -1,0 +1,22 @@
+﻿@model IEnumerable<DAL.Entities.User>
+
+@{ 
+    ViewData["Title"] = "Index";
+}
+
+<div class="mb-2">
+    <a asp-action="CreateUser" class="btn btn-success">Add the user</a>
+</div>
+
+<table class="table table-dark">
+    <tbody>
+        @foreach( var item in Model)
+        {
+        <tr>
+            <td>@item.UserName</td>
+            <td>@item.FirstName</td>
+            <td>@item.LastName</td>
+        </tr>
+        }
+    </tbody>
+</table>
