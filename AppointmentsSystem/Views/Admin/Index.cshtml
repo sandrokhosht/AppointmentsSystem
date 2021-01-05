@@ -16,6 +16,9 @@
             <td>@item.UserName</td>
             <td>@item.FirstName</td>
             <td>@item.LastName</td>
+            <td>
+                <a class="btn btn-info" asp-action="EditUser" asp-route-id="@item.Id">View</a>
+            </td>
         </tr>
         }
     </tbody>

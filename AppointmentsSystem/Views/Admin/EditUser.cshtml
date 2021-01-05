@@ -1,0 +1,42 @@
+﻿@model UserCUVM
+
+@{
+    ViewBag.Title = "Edit User";
+}
+
+<h4>Edit User</h4>
+
+
+
+<form asp-action="EditUser">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="User.Email" class="control-label"></label>
+        <input asp-for="User.Email" class="form-control" />
+        <span asp-validation-for="User.Email" class="text-danger"></span>
+    </div>
+ 
+    <div class="form-group">
+        <label asp-for="User.LastName" class="control-label"></label>
+        <input asp-for="User.LastName" class="form-control" />
+        <span asp-validation-for="User.LastName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="User.UserName" class="control-label"></label>
+        <input asp-for="User.UserName" class="form-control" />
+        <span asp-validation-for="User.UserName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="User.Password" class="control-label"></label>
+        <input asp-for="User.Password" class="form-control" />
+        <span asp-validation-for="User.Password" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="RoleName" class="control-label"></label>
+        <input asp-for="RoleName" class="form-control" />
+        <span asp-validation-for="RoleName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+    </div>
+</form>

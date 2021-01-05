@@ -160,3 +160,5 @@ C:\Users\Sandro\source\repos\AppointmentsSystem\AppointmentsSystem\bin\Debug\net
 C:\Users\Sandro\source\repos\AppointmentsSystem\AppointmentsSystem\obj\Debug\net5.0\Razor\Views\Admin\Index.cshtml.g.cs
 C:\Users\Sandro\source\repos\AppointmentsSystem\AppointmentsSystem\obj\Debug\net5.0\Razor\Views\Admin\CreateUser.cshtml.g.cs
 C:\Users\Sandro\source\repos\AppointmentsSystem\AppointmentsSystem\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\Sandro\source\repos\AppointmentsSystem\AppointmentsSystem\obj\Debug\net5.0\Razor\Views\Admin\CreateRole.cshtml.g.cs
+C:\Users\Sandro\source\repos\AppointmentsSystem\AppointmentsSystem\obj\Debug\net5.0\Razor\Views\Admin\EditUser.cshtml.g.cs
