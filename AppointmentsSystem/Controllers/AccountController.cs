@@ -25,6 +25,11 @@ namespace AppointmentsSystem.Controllers
 
         public IActionResult Login(string returnUrl) // identity manages to pass returnUrl to this
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             ViewBag.returnUrl = returnUrl;
             return View();
         }
@@ -32,6 +37,8 @@ namespace AppointmentsSystem.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginDTO model, string returnUrl)
         {
+            
+
             if (ModelState.IsValid)
             {
                 User user = await _userManager.FindByEmailAsync(model.Email);
