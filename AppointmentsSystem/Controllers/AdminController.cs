@@ -2,6 +2,7 @@
 using BLL.DTOs.User;
 using BLL.Interfaces;
 using BLL.Operations;
+using DAL.Context;
 using DAL.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -18,12 +19,14 @@ namespace AppointmentsSystem.Controllers
         private UserManager<User> _userManager;
         private RoleManager<IdentityRole> _roleManager;
         private readonly IAppointmentOperation _appointmentOperation;
+        private readonly AppointmentDbContext _appointmentDbContext;
 
-        public AdminController(UserManager<User> userManager, RoleManager<IdentityRole> roleManager, IAppointmentOperation appointmentOperation)
+        public AdminController(UserManager<User> userManager, RoleManager<IdentityRole> roleManager, IAppointmentOperation appointmentOperation, AppointmentDbContext appointmentDbContext)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _appointmentOperation = appointmentOperation;
+            _appointmentDbContext = appointmentDbContext;
         }
 
         public IActionResult Index()
@@ -50,7 +53,8 @@ namespace AppointmentsSystem.Controllers
         {
             var role = await _roleManager.FindByNameAsync(model.RoleName);
             await _appointmentOperation.AddUserToRole(model.User, model.RoleName);
-            await _roleManager.UpdateAsync(role);
+            //await _roleManager.UpdateAsync(role);
+            await _appointmentDbContext.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 

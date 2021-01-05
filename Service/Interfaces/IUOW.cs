@@ -9,6 +9,6 @@ namespace Service.Interfaces
 
          IAppointmentRepository Appointment { get; }
 
-        void Commit();
+         void Commit();
     }
 }
