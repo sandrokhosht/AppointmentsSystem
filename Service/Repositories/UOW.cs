@@ -1,19 +1,28 @@
 ﻿using DAL.Context;
+using DAL.Entities;
+using Microsoft.AspNetCore.Identity;
 using Service.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Service.Repositories
 {
     public class UOW : IUOW
     {
-        private AppointmentDbContext _context { get; set; }
+        private ApplicationDbContext _context { get; set; }
+
+        private UserManager<User> _userManager { get; set; }
 
         private IAppointmentRepository _appointmentRepository;
-        public UOW(AppointmentDbContext context)
+
+        private IUserRepository _userRepository;
+
+        public UOW(ApplicationDbContext context, UserManager<User> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         public IAppointmentRepository Appointment {
@@ -27,6 +36,18 @@ namespace Service.Repositories
             
         }
 
+        public IUserRepository User
+        {
+            get
+            
+            {
+                if (_userRepository == null)
+                    _userRepository = new UserRepository(_context, _userManager);
+                return _userRepository;
+            }
+
+        }
+
         public void Commit()
         {
             _context.SaveChanges();
@@ -36,5 +57,6 @@ namespace Service.Repositories
         {
             _context.Dispose();
         }
+
     }
 }

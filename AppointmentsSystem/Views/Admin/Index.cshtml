@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DAL.Entities.User>
+﻿@model UserListVM
 
 @{ 
     ViewData["Title"] = "Index";
@@ -10,7 +10,7 @@
 
 <table class="table table-dark">
     <tbody>
-        @foreach( var item in Model)
+        @foreach(var item in Model.Users)
         {
         <tr>
             <td>@item.UserName</td>

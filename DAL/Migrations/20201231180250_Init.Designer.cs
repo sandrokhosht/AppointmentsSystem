@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DAL.Migrations
 {
-    [DbContext(typeof(AppointmentDbContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     [Migration("20201231180250_Init")]
     partial class Init
     {

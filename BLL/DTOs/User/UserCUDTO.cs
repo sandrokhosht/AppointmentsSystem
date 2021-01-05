@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace BLL.DTOs.User
 {
-    public class CreateUserDTO
+    public class UserCUDTO
     {
         public string UserName { get; set; }
+
         public string FirstName { get; set; }
 
         public string LastName { get; set; }

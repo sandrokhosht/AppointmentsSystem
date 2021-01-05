@@ -1,4 +1,6 @@
 ﻿using DAL.Context;
+using DAL.Entities;
+using Microsoft.AspNetCore.Identity;
 using Service.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -10,9 +12,9 @@ namespace Service.Repositories
 {
     public class RepositoryBase<T> : IRepositoryBase<T> where T : class
     {
-        private AppointmentDbContext _context { get; set; }
+        private ApplicationDbContext _context { get; set; }
 
-        public RepositoryBase(AppointmentDbContext context)
+        public RepositoryBase(ApplicationDbContext context)
         {
             _context = context;
         }

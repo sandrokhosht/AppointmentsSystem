@@ -33,7 +33,7 @@ namespace AppointmentsSystem
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddDbContext<AppointmentDbContext>(options =>
+            services.AddDbContext<ApplicationDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
@@ -48,11 +48,12 @@ namespace AppointmentsSystem
             
             })
                 .AddDefaultTokenProviders()
-                .AddEntityFrameworkStores<AppointmentDbContext>();
+                .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddScoped<IUOW, UOW>();
             services.AddAutoMapper(typeof(BLL.Mappings.MapProfile).Assembly);
             services.AddTransient<IAppointmentOperation, AppointmentOperation>();
+            services.AddTransient<IUserOperation, UserOperation>();
             services.AddControllersWithViews();
         }
 

@@ -7,9 +7,9 @@ using System.Text;
 
 namespace DAL.Context
 {
-    public class AppointmentDbContext : IdentityDbContext<User>
+    public class ApplicationDbContext : IdentityDbContext<User>
     {
-        public AppointmentDbContext(DbContextOptions options)
+        public ApplicationDbContext(DbContextOptions options)
             : base(options)
         {
 

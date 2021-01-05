@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DAL.Migrations
 {
-    [DbContext(typeof(AppointmentDbContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     [Migration("20210103195528_Add Identity Table")]
     partial class AddIdentityTable
     {

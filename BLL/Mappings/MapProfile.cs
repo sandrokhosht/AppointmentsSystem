@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BLL.DTOs.Appointment;
+using BLL.DTOs.User;
 using DAL.Entities;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,13 @@ namespace BLL.Mappings
             CreateMap<AppointmentCUDTO, Appointment>();
 
             CreateMap<AppointmentReadDTO, Appointment>();
+
+            CreateMap<User, UserReadDTO>();
+
+            CreateMap<UserReadDTO, User>();
+
+            CreateMap<UserCUDTO, User>();
+
 
         }
     }

@@ -15,7 +15,7 @@ namespace AppointmentsSystem.Controllers
     {
         private UserManager<User> _userManager;
         private SignInManager<User> _signInManager;
-
+        
 
         public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
         {
