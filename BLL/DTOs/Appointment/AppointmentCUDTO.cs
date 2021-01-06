@@ -20,7 +20,7 @@ namespace BLL.DTOs.Appointment
         public string LastName { get; set; }
 
         [Required(ErrorMessage = "Required field")]
-        [StringLength(maximumLength: 11, MinimumLength = 11, ErrorMessage = "Field should contain 11 characters")]
+        [StringLength(maximumLength: 9, MinimumLength = 9, ErrorMessage = "Field should contain 9 characters")]
         [RegularExpression("^[0-9]*", ErrorMessage = "Field should be numeric type")]
         public string PhoneNumber { get; set; }
 

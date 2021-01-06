@@ -27,5 +27,11 @@ namespace Service.Repositories
             
             return result;
         }
+
+        public async Task<User> FindByEmailAsync(string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            return user;           
+        }
     }
 }

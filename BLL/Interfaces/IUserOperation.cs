@@ -14,5 +14,6 @@ namespace BLL.Interfaces
         public IEnumerable<UserReadDTO> GetAll();
 
         public Task<IdentityResult> CreateUserAsync(UserCUDTO user);
+
     }
 }

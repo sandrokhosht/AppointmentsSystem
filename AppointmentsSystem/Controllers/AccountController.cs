@@ -1,8 +1,10 @@
 ﻿using BLL.DTOs.User;
+using BLL.Interfaces;
 using DAL.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Service.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,14 +15,13 @@ namespace AppointmentsSystem.Controllers
     
     public class AccountController : Controller
     {
-        private UserManager<User> _userManager;
         private SignInManager<User> _signInManager;
-        
+        private IUOW _uow;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+        public AccountController (SignInManager<User> signInManager, IUOW uow)
         {
-            _userManager = userManager;
             _signInManager = signInManager;
+            _uow = uow;
         }
 
         public IActionResult Login(string returnUrl) // identity manages to pass returnUrl to this
@@ -35,13 +36,13 @@ namespace AppointmentsSystem.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(LoginDTO model, string returnUrl)
+        public async Task<IActionResult> Login(UserLoginDTO model, string returnUrl)
         {
             
 
             if (ModelState.IsValid)
             {
-                User user = await _userManager.FindByEmailAsync(model.Email);
+                User user = await _uow.User.FindByEmailAsync(model.Email);
                 if (user != null)
                 {
                     Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(user, model.Password, false, false);

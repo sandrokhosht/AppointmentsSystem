@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BLL.DTOs.User
 {
-    public class LoginDTO
+    public class UserLoginDTO
     {
         [Required]
         [UIHint("email")]

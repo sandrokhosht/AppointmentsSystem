@@ -16,7 +16,6 @@ namespace BLL.Operations
     {
         private readonly IUOW _uow;
         private readonly IMapper _mapper;
-        
 
         public UserOperation(IUOW uow, IMapper mapper)
         {
@@ -29,11 +28,9 @@ namespace BLL.Operations
             var model = _uow.User.FindAll();
             var users = _mapper.Map<IEnumerable<UserReadDTO>>(model);
             return users;
-        }
+        }     
 
-        
-        
-        public async Task<IdentityResult> CreateUserAsync(UserCUDTO model)     // Gets UserCreateUpdateDTO , transforms it into User entity class,
+        public async Task<IdentityResult> CreateUserAsync(UserCUDTO model)     // Has UserCreateUpdateDTO as argument , transforms it into User entity class,
         {                                                                      // calls method Service/Repositories/UOW.User.CreateAsync(***) returns IdentityResult
             var user = _mapper.Map<User>(model);                               // errors(if there are any).
             var result = await _uow.User.CreateAsync(user, model.Password);
@@ -44,5 +41,9 @@ namespace BLL.Operations
 
             return result;
         }
+
+        
+
+
     }
 }

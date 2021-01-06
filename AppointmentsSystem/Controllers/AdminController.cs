@@ -40,37 +40,6 @@ namespace AppointmentsSystem.Controllers
             return View();
         }
 
-        /*[HttpPost]
-        public async Task<IActionResult> CreateUser(UserCUDTO model)
-        {
-            if (ModelState.IsValid)
-            {
-                User user = new User()
-                {
-                    UserName = model.Email,
-                    Email = model.Email,
-                    FirstName = model.FirstName,
-                    LastName = model.LastName,
-                    
-                };
-
-                IdentityResult result = await _userManager.CreateAsync(user, model.Password);
-
-                if (result.Succeeded)
-                {
-                    return RedirectToAction(nameof(Index));
-                }
-                else
-                {
-                    foreach(IdentityError error in result.Errors)
-                    {
-                        ModelState.AddModelError("", error.Description);
-                    }
-                }
-            }
-
-            return View(model);
-        }*/
         [HttpPost]
         public async Task<IActionResult> CreateUser(UserCUVM model)
         {
