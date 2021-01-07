@@ -54,6 +54,7 @@ namespace AppointmentsSystem
             services.AddAutoMapper(typeof(BLL.Mappings.MapProfile).Assembly);
             services.AddTransient<IAppointmentOperation, AppointmentOperation>();
             services.AddTransient<IUserOperation, UserOperation>();
+            services.AddTransient<IRoleOperation, RoleOperation>();
             services.AddControllersWithViews();
         }
 

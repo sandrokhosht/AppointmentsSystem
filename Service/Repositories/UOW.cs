@@ -15,14 +15,19 @@ namespace Service.Repositories
 
         private UserManager<User> _userManager { get; set; }
 
+        private RoleManager<IdentityRole> _roleManager { get; set; }
+
         private IAppointmentRepository _appointmentRepository;
 
         private IUserRepository _userRepository;
 
-        public UOW(ApplicationDbContext context, UserManager<User> userManager)
+        private IRoleRepository _roleRepository;
+
+        public UOW(ApplicationDbContext context, UserManager<User> userManager, RoleManager<IdentityRole> roleManager)
         {
             _context = context;
             _userManager = userManager;
+            _roleManager = roleManager;
         }
 
         public IAppointmentRepository Appointment {
@@ -48,9 +53,26 @@ namespace Service.Repositories
 
         }
 
+        public IRoleRepository Role
+        {
+            get
+
+            {
+                if (_roleRepository == null)
+                    _roleRepository = new RoleRepository(_context, _roleManager);
+                return _roleRepository;
+            }
+
+        }
+
         public void Commit()
         {
             _context.SaveChanges();
+        }
+
+        public async Task CommitAsync()
+        {
+            await _context.SaveChangesAsync();
         }
 
         public void Dispose()

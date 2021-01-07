@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using BLL.DTOs.Appointment;
+using BLL.DTOs.Role;
 using BLL.DTOs.User;
 using DAL.Entities;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +27,8 @@ namespace BLL.Mappings
             CreateMap<UserReadDTO, User>();
 
             CreateMap<UserCUDTO, User>();
+
+            CreateMap<RoleCUDTO, IdentityRole>();
 
 
         }

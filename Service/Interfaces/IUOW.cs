@@ -12,7 +12,11 @@ namespace Service.Interfaces
 
         IUserRepository User { get; }
 
+        IRoleRepository Role { get; }
+
         void Commit();
+
+        Task CommitAsync();
         
     }
 }

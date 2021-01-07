@@ -15,14 +15,14 @@ namespace AppointmentsSystem.Controllers
 {
     public class AdminController : Controller
     {
-        private UserManager<User> _userManager;
         private IUserOperation _userOperation;
+        private IRoleOperation _roleOperation;
         
 
-        public AdminController(UserManager<User> userManager, IUserOperation userOperation)
+        public AdminController(IUserOperation userOperation, IRoleOperation roleOperation)
         {
-            _userManager = userManager;
             _userOperation = userOperation;
+            _roleOperation = roleOperation;
         }
 
         public IActionResult Index()
@@ -59,6 +59,30 @@ namespace AppointmentsSystem.Controllers
                     {
                         ModelState.AddModelError("", error.Description);
                     }
+                }
+            }
+
+            return View(model);
+        }
+
+        public IActionResult CreateRole()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateRole(RoleCUVM model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _roleOperation.CreateRoleAsync(model.Role);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction(nameof(CreateRole));
+                }
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
                 }
             }
 
