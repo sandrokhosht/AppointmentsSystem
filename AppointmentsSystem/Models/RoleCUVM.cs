@@ -1,4 +1,6 @@
 ﻿using BLL.DTOs.Role;
+using BLL.DTOs.User;
+using DAL.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,6 +12,8 @@ namespace AppointmentsSystem.Models
     public class RoleCUVM
     {
         public RoleCUDTO Role { get; set; }
+
+        public List<UserReadDTO> Users { get; set; }
         
     }
 }

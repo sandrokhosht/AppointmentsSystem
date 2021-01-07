@@ -1,4 +1,5 @@
 ﻿using AppointmentsSystem.Models;
+using BLL.DTOs.Role;
 using BLL.DTOs.User;
 using BLL.Interfaces;
 using DAL.Entities;
@@ -17,7 +18,7 @@ namespace AppointmentsSystem.Controllers
     {
         private IUserOperation _userOperation;
         private IRoleOperation _roleOperation;
-        
+
 
         public AdminController(IUserOperation userOperation, IRoleOperation roleOperation)
         {
@@ -27,7 +28,7 @@ namespace AppointmentsSystem.Controllers
 
         public IActionResult Index()
         {
-            UserListVM model = new UserListVM
+            var model = new UserListVM
             {
                 Users = _userOperation.GetAll()
                 
@@ -87,6 +88,85 @@ namespace AppointmentsSystem.Controllers
             }
 
             return View(model);
+        }
+
+        public IActionResult RoleList()
+        {
+            var model = new RoleListVM
+            {
+                Roles = _roleOperation.GetAllRoles()
+            };
+
+            return View(model); 
+        }
+
+
+        // Role ID is passed from the URL to the action
+        public async Task<IActionResult> EditRole(string id)
+        {
+            // Find the role by Role ID
+            var role = await _roleOperation.FindRoleByIdAsync(id);
+
+            if (role == null)
+            {
+                ViewBag.ErrorMessage = $"Role with Id = {id} cannot be found";
+                return View("NotFound");
+            }
+
+            var model = new RoleCUVM
+            {
+                Role = new RoleCUDTO
+                {
+                    Name = role.Name
+                }
+            };
+
+            // Retrieve all the Users
+            var usrs = _userOperation.GetAll();
+            foreach (var user in _userOperation.GetAll())
+            {
+                // If the user is in this role, add the username to
+                // Users property of EditRoleViewModel. This model
+                // object is then passed to the view for display
+                if (await _userOperation.IsUserInRoleAsync(user, model.Role.Name))
+                {
+                    model.Users.Add(user);
+                }
+            }
+
+            return View(model);
+        }
+
+        // This action responds to HttpPost and receives EditRoleViewModel
+        [HttpPost]
+        public async Task<IActionResult> EditRole(RoleCUVM model)
+        {
+            var role = await _roleOperation.FindRoleByIdAsync(model.Role.Id);
+
+            if (role == null)
+            {
+                ViewBag.ErrorMessage = $"Role with Id = {model.Role.Id} cannot be found";
+                return View("NotFound");
+            }
+            else
+            {
+                role.Name = model.Role.Name;
+
+                // Update the Role using UpdateAsync
+                var result = await _roleOperation.UpdateRoleAsync(role);
+
+                if (result.Succeeded)
+                {
+                    return RedirectToAction(nameof(RoleList));
+                }
+
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+
+                return View(model);
+            }
         }
     }
 }

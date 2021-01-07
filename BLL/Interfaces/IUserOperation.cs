@@ -15,5 +15,7 @@ namespace BLL.Interfaces
 
         public Task<IdentityResult> CreateUserAsync(UserCUDTO user);
 
+        public Task<bool> IsUserInRoleAsync(UserReadDTO user, string roleName);
+
     }
 }

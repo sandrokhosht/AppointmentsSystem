@@ -24,11 +24,15 @@ namespace BLL.Mappings
 
             CreateMap<User, UserReadDTO>();
 
-            CreateMap<UserReadDTO, User>();
+            CreateMap<User, UserCUDTO>();
 
             CreateMap<UserCUDTO, User>();
 
+            CreateMap<UserReadDTO, User>();
+
             CreateMap<RoleCUDTO, IdentityRole>();
+
+            CreateMap<IdentityRole, RoleCUDTO>();
 
 
         }

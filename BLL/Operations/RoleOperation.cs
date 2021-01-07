@@ -29,5 +29,29 @@ namespace BLL.Operations
             await _uow.CommitAsync();
             return result;
         }
+
+        public async Task<RoleCUDTO> FindRoleByIdAsync(string id)
+        {
+            var role = await _uow.Role.FindByIdAsync(id);
+            var model = _mapper.Map<RoleCUDTO>(role);
+            return model;
+        }
+
+        public IEnumerable<IdentityRole> GetAllRoles()
+        {
+            var roles = _uow.Role.GetAll();
+            return roles;
+        }
+
+        public async Task<IdentityResult> UpdateRoleAsync(RoleCUDTO model)
+        {
+            var role = _mapper.Map<IdentityRole>(model);
+            var result = await _uow.Role.UpdateAsync(role);
+            if (result.Succeeded)
+            {
+                await _uow.CommitAsync();
+            }
+            return result;
+        }
     }
 }

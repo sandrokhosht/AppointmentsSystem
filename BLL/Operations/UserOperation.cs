@@ -30,7 +30,7 @@ namespace BLL.Operations
             return users;
         }     
 
-        public async Task<IdentityResult> CreateUserAsync(UserCUDTO model)     // Has UserCreateUpdateDTO as argument , transforms it into User entity class,
+        public async Task<IdentityResult> CreateUserAsync(UserCUDTO model)     // Gets UserReadDTO as argument , transforms it into User entity class,
         {                                                                      // calls method Service/Repositories/UOW.User.CreateAsync(***) returns IdentityResult
             var user = _mapper.Map<User>(model);                               // errors(if there are any).
             var result = await _uow.User.CreateAsync(user, model.Password);
@@ -42,8 +42,11 @@ namespace BLL.Operations
             return result;
         }
 
-        
-
-
+        public async Task<bool> IsUserInRoleAsync(UserReadDTO model, string roleName)
+        {
+            var user = _mapper.Map<User>(model);
+            var isInRole = await _uow.User.IsInRoleAsync(user, roleName);
+            return isInRole;
+        }
     }
 }

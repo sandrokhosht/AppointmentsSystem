@@ -29,5 +29,23 @@ namespace Service.Repositories
 
             return result;
         }
+
+        public IEnumerable<IdentityRole> GetAll()
+        {
+            var roles = _roleManager.Roles;
+            return roles;
+        }
+
+        public async Task<IdentityRole> FindByIdAsync(string id)
+        {
+            var role = await _roleManager.FindByIdAsync(id);
+            return role;
+        }
+
+        public async Task<IdentityResult> UpdateAsync(IdentityRole role)
+        {
+            var result = await _roleManager.UpdateAsync(role);
+            return result;
+        }
     }
 }

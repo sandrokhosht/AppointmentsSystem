@@ -11,5 +11,12 @@ namespace BLL.Interfaces
     public interface IRoleOperation
     {
         public Task<IdentityResult> CreateRoleAsync(RoleCUDTO model);
+
+        public IEnumerable<IdentityRole> GetAllRoles();
+
+        public Task<RoleCUDTO> FindRoleByIdAsync(string id);
+
+        public Task<IdentityResult> UpdateRoleAsync(RoleCUDTO model);
+        
     }
 }

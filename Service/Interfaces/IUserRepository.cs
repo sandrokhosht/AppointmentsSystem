@@ -13,5 +13,8 @@ namespace Service.Interfaces
         public Task<IdentityResult> CreateAsync(User user, string password);
 
         public Task<User> FindByEmailAsync(string email);
+
+        public Task<bool> IsInRoleAsync(User user, string roleName);
+
     }
 }

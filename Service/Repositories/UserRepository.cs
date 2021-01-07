@@ -33,5 +33,12 @@ namespace Service.Repositories
             var user = await _userManager.FindByEmailAsync(email);
             return user;           
         }
+
+        public async Task<bool> IsInRoleAsync(User user, string roleName)
+        {
+            bool isInRole = await _userManager.IsInRoleAsync(user, roleName);
+            return isInRole;
+        }
+
     }
 }
