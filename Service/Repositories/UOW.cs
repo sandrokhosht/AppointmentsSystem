@@ -1,9 +1,11 @@
 ﻿using DAL.Context;
 using DAL.Entities;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Service.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,7 +25,10 @@ namespace Service.Repositories
 
         private IRoleRepository _roleRepository;
 
+        
+
         public UOW(ApplicationDbContext context, UserManager<User> userManager, RoleManager<IdentityRole> roleManager)
+        
         {
             _context = context;
             _userManager = userManager;

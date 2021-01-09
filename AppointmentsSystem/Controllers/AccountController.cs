@@ -15,8 +15,8 @@ namespace AppointmentsSystem.Controllers
     
     public class AccountController : Controller
     {
-        private SignInManager<User> _signInManager;
-        private IUOW _uow;
+        private readonly SignInManager<User> _signInManager;
+        private readonly IUOW _uow;
 
         public AccountController (SignInManager<User> signInManager, IUOW uow)
         {

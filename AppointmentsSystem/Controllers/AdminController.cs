@@ -16,8 +16,8 @@ namespace AppointmentsSystem.Controllers
 {
     public class AdminController : Controller
     {
-        private IUserOperation _userOperation;
-        private IRoleOperation _roleOperation;
+        private readonly IUserOperation _userOperation;
+        private readonly IRoleOperation _roleOperation;
 
 
         public AdminController(IUserOperation userOperation, IRoleOperation roleOperation)
@@ -117,27 +117,28 @@ namespace AppointmentsSystem.Controllers
             {
                 Role = new RoleCUDTO
                 {
-                    Name = role.Name
+                    Name = role.Name,
+                    Id = role.Id
                 }
             };
 
-            // Retrieve all the Users
-            var usrs = _userOperation.GetAll();
-            foreach (var user in _userOperation.GetAll())
-            {
-                // If the user is in this role, add the username to
-                // Users property of EditRoleViewModel. This model
-                // object is then passed to the view for display
-                if (await _userOperation.IsUserInRoleAsync(user, model.Role.Name))
+
+            var allUsers = _userOperation.GetAll().ToList();
+
+            UserReadDTO myuser = allUsers[2];
+           // _userManager.AddToRoleAsync(myuser, model.Role.Name);
+
+            foreach (var user in allUsers.ToList())
+            {               
+                if (await _userOperation.IsUserInRoleAsync(myuser, model.Role.Name))
                 {
-                    model.Users.Add(user);
+                    model.Users.Add(myuser);
                 }
             }
 
             return View(model);
         }
 
-        // This action responds to HttpPost and receives EditRoleViewModel
         [HttpPost]
         public async Task<IActionResult> EditRole(RoleCUVM model)
         {
@@ -152,7 +153,6 @@ namespace AppointmentsSystem.Controllers
             {
                 role.Name = model.Role.Name;
 
-                // Update the Role using UpdateAsync
                 var result = await _roleOperation.UpdateRoleAsync(role);
 
                 if (result.Succeeded)

@@ -1,4 +1,5 @@
 ﻿using DAL.Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -16,6 +17,7 @@ namespace DAL.Context
         }
 
         public DbSet<Appointment> Appointments { get; set; }
+        public DbSet<IdentityRole> RolesSet { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

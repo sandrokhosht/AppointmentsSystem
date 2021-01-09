@@ -1,5 +1,7 @@
 ﻿using DAL.Context;
+using DAL.Entities;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Service.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -38,6 +40,7 @@ namespace Service.Repositories
 
         public async Task<IdentityRole> FindByIdAsync(string id)
         {
+            
             var role = await _roleManager.FindByIdAsync(id);
             return role;
         }
@@ -46,6 +49,7 @@ namespace Service.Repositories
         {
             var result = await _roleManager.UpdateAsync(role);
             return result;
+
         }
     }
 }

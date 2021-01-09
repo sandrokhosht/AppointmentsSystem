@@ -12,7 +12,7 @@ namespace Service.Repositories
 {
     public class RepositoryBase<T> : IRepositoryBase<T> where T : class
     {
-        private ApplicationDbContext _context { get; set; }
+        public ApplicationDbContext _context { get; set; }
 
         public RepositoryBase(ApplicationDbContext context)
         {

@@ -1,3 +1,4 @@
+using AppointmentsSystem.Controllers;
 using AutoMapper;
 using BLL.Interfaces;
 using BLL.Operations;
@@ -36,7 +37,8 @@ namespace AppointmentsSystem
             services.AddDbContext<ApplicationDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
-            });
+                //options.UseSqlServer(Guid.NewGuid().ToString()).UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+        });
 
             services.AddIdentity<User, IdentityRole>(opts => {
 
