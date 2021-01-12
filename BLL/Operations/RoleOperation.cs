@@ -51,12 +51,16 @@ namespace BLL.Operations
         }
 
         public async Task<IdentityResult> UpdateRoleAsync(RoleCUDTO model)
-        {
-            var role = await _uow.Role.FindByIdAsync(model.Id);     // Getting role by provided id
-            role.Name = model.Name;                                 // changing model's name by provided one from model
-            var changedModel = _mapper.Map<IdentityRole>(role);      // Mapping it to return appropriate value
-            var result = await _uow.Role.UpdateAsync(changedModel);  // Updates context itself , no need to call _uow.Commit()
-            return result;                                          // Returns result of above method
+        { 
+            // Getting role by provided id
+            var role = await _uow.Role.FindByIdAsync(model.Id);
+            // changing model's name by provided one from model
+            role.Name = model.Name;
+                                                                                                //   var role = _mapper.Map<IdentityRole>(model); **Tracking error**
+            // Updates context itself , no need to call _uow.Commit()
+            var result = await _uow.Role.UpdateAsync(role);
+            // Returns result of above method
+            return result;                                          
         }
 
         

@@ -123,16 +123,14 @@ namespace AppointmentsSystem.Controllers
             };
 
 
-            var allUsers = _userOperation.GetAll().ToList();
-
-            UserReadDTO myuser = allUsers[2];
            // _userManager.AddToRoleAsync(myuser, model.Role.Name);
 
-            foreach (var user in allUsers.ToList())
-            {               
-                if (await _userOperation.IsUserInRoleAsync(myuser, model.Role.Name))
+            foreach (var user in _userOperation.GetAll().ToList())
+            {
+                var isInRole = await _userOperation.IsUserInRoleAsync(user, model.Role.Name);
+                if (isInRole)
                 {
-                    model.Users.Add(myuser);
+                    model.Users.Add(user);
                 }
             }
 

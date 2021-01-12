@@ -40,7 +40,6 @@ namespace Service.Repositories
 
         public async Task<IdentityRole> FindByIdAsync(string id)
         {
-            
             var role = await _roleManager.FindByIdAsync(id);
             return role;
         }
