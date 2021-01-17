@@ -222,7 +222,7 @@ namespace AppointmentsSystem.Controllers
                 {
                     User = await _userOperation.GetUserByIdAsync(model[i].UserId)
                 };
-                //var user = await _userOperation.GetUserByIdAsync(model[i].UserId);
+
 
                 IdentityResult result = null;
 

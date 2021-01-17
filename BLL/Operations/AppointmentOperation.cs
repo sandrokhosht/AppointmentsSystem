@@ -37,7 +37,7 @@ namespace BLL.Operations
 
         public AppointmentReadDTO GetAppointment(int id)
         {
-            var model = _uow.Appointment.Get(id);
+            var model = _uow.Appointment.GetById(id);
             var appointment = _mapper.Map<AppointmentReadDTO>(model);
             return appointment;
         }

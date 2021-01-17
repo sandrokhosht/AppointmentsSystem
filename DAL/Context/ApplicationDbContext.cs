@@ -18,6 +18,7 @@ namespace DAL.Context
 
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<IdentityRole> RolesSet { get; set; }
+        public DbSet<User> UsersSet { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -47,6 +48,8 @@ namespace DAL.Context
             modelBuilder.Entity<User>()
                 .Property(a => a.Id)
                 .ValueGeneratedOnAdd();
+                
+                
         }
     }
 }

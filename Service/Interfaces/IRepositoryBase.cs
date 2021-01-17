@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Service.Interfaces
 {
@@ -11,7 +12,7 @@ namespace Service.Interfaces
 
         IEnumerable<T> FindByCondition(Expression<Func<T,bool>> expression);
 
-        T Get(int id);
+        T GetById(int id);
 
         void Create(T entity);
 

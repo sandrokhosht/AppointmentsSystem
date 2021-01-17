@@ -1,12 +1,14 @@
 ﻿using DAL.Context;
 using DAL.Entities;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Service.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Service.Repositories
 {
@@ -39,7 +41,7 @@ namespace Service.Repositories
             return _context.Set<T>().Where(expression);
         }
 
-        public T Get(int id)
+        public T GetById(int id)
         {
             return _context.Set<T>().Find(id);
         }
@@ -48,5 +50,7 @@ namespace Service.Repositories
         {
             _context.Set<T>().Update(entity);
         }
+
+        
     }
 }

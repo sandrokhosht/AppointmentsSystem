@@ -58,14 +58,22 @@ namespace BLL.Operations
 
         public async Task<IdentityResult> AddUserToRoleAsync(UserCUDTO model, string roleName)
         {
-            var user = _mapper.Map<User>(model);
+            var user = await _uow.User.FindByIdAsync(model.Id);  // Avoiding tracking exception
             var result = await _uow.User.AddToRoleAsync(user, roleName);
+            if (result.Succeeded)
+            {
+                await _uow.CommitAsync();
+            }
             return result;
         }
         public async Task<IdentityResult> RemoveUserFromRoleAsync(UserCUDTO model, string roleName)
         {
-            var user = _mapper.Map<User>(model);
+            var user = await _uow.User.FindByIdAsync(model.Id);  // Avoiding tracking exception
             var result = await _uow.User.RemoveFromRoleAsync(user, roleName);
+            if (result.Succeeded)
+            {
+                await _uow.CommitAsync();
+            }
             return result;
         }
     }

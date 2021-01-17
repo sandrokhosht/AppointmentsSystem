@@ -1,6 +1,7 @@
 ﻿using DAL.Context;
 using DAL.Entities;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Service.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -42,6 +43,7 @@ namespace Service.Repositories
         public async Task<User> FindByIdAsync(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
+            //var user = await _context.Users.AsNoTracking().FirstOrDefaultAsync(user => user.Id == id); // avoiding tracking exception
             return user;
         }
 
@@ -56,5 +58,6 @@ namespace Service.Repositories
             var result = await _userManager.RemoveFromRoleAsync(user, roleName);
             return result;
         }
+
     }
 }

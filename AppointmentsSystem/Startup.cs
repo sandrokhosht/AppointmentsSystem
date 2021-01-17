@@ -36,9 +36,10 @@ namespace AppointmentsSystem
 
             services.AddDbContext<ApplicationDbContext>(options =>
             {
+              //  options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
                 //options.UseSqlServer(Guid.NewGuid().ToString()).UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
-        });
+            });
 
             services.AddIdentity<User, IdentityRole>(opts => {
 
