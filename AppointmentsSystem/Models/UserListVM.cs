@@ -8,6 +8,6 @@ namespace AppointmentsSystem.Models
 {
     public class UserListVM
     {
-       public IEnumerable<UserReadDTO> Users { get; set; }
+       public IEnumerable<UserCUDTO> Users { get; set; }
     }
 }

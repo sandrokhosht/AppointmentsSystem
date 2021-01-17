@@ -11,11 +11,17 @@ namespace BLL.Interfaces
 {
     public interface IUserOperation
     {
-        public IEnumerable<UserReadDTO> GetAll();
+        public IEnumerable<UserCUDTO> GetAll();
 
         public Task<IdentityResult> CreateUserAsync(UserCUDTO user);
 
-        public Task<bool> IsUserInRoleAsync(UserReadDTO user, string roleName);
+        public Task<bool> IsUserInRoleAsync(UserCUDTO user, string roleName);
+
+        public Task<UserCUDTO> GetUserByIdAsync(string id);
+
+        public Task<IdentityResult> AddUserToRoleAsync(UserCUDTO user, string roleName);
+
+        public Task<IdentityResult> RemoveUserFromRoleAsync(UserCUDTO model, string roleName);
 
     }
 }

@@ -23,10 +23,10 @@ namespace BLL.Operations
             _mapper = mapper;
         }
 
-        public IEnumerable<UserReadDTO> GetAll()
+        public IEnumerable<UserCUDTO> GetAll()
         {
             var model = _uow.User.FindAll();
-            var users = _mapper.Map<IEnumerable<UserReadDTO>>(model);
+            var users = _mapper.Map<IEnumerable<UserCUDTO>>(model);
             return users;
         }     
 
@@ -42,11 +42,31 @@ namespace BLL.Operations
             return result;
         }
 
-        public async Task<bool> IsUserInRoleAsync(UserReadDTO model, string roleName)
+        public async Task<bool> IsUserInRoleAsync(UserCUDTO model, string roleName)
         {
             var user = _mapper.Map<User>(model);
             var isInRole = await _uow.User.IsInRoleAsync(user, roleName);
             return isInRole;
+        }
+
+        public async Task<UserCUDTO> GetUserByIdAsync(string id)
+        {
+            var model = await _uow.User.FindByIdAsync(id);
+            var user = _mapper.Map<UserCUDTO>(model);
+            return user;
+        }
+
+        public async Task<IdentityResult> AddUserToRoleAsync(UserCUDTO model, string roleName)
+        {
+            var user = _mapper.Map<User>(model);
+            var result = await _uow.User.AddToRoleAsync(user, roleName);
+            return result;
+        }
+        public async Task<IdentityResult> RemoveUserFromRoleAsync(UserCUDTO model, string roleName)
+        {
+            var user = _mapper.Map<User>(model);
+            var result = await _uow.User.RemoveFromRoleAsync(user, roleName);
+            return result;
         }
     }
 }

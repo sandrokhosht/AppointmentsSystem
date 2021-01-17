@@ -14,7 +14,7 @@ namespace BLL.Interfaces
 
         public IEnumerable<IdentityRole> GetAllRoles();
 
-        public Task<RoleCUDTO> FindRoleByIdAsync(string id);
+        public Task<RoleCUDTO> GetRoleByIdAsync(string id);
 
         public Task<IdentityResult> UpdateRoleAsync(RoleCUDTO model);
         

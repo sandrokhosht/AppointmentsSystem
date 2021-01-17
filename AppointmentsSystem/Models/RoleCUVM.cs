@@ -13,13 +13,13 @@ namespace AppointmentsSystem.Models
     {
         public RoleCUDTO Role { get; set; }
 
-        public List<UserReadDTO> Users { get; set; }
+        public List<UserCUDTO> Users { get; set; }
 
 
         // Avoiding Nullpointerexception
         public RoleCUVM()
         {
-            Users = new List<UserReadDTO>();
+            Users = new List<UserCUDTO>();
         }
     }
 }

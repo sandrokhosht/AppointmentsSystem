@@ -16,5 +16,11 @@ namespace Service.Interfaces
 
         public Task<bool> IsInRoleAsync(User user, string roleName);
 
+        public Task<User> FindByIdAsync(string id);
+
+        public Task<IdentityResult> AddToRoleAsync(User user, string roleName);
+
+        public Task<IdentityResult> RemoveFromRoleAsync(User user, string roleName);
+
     }
 }

@@ -23,8 +23,7 @@ namespace Service.Repositories
 
         public async Task<IdentityResult> CreateAsync(User user, string password)
         {
-            IdentityResult result = await _userManager.CreateAsync(user, password);
-            
+            IdentityResult result = await _userManager.CreateAsync(user, password);           
             return result;
         }
 
@@ -40,5 +39,22 @@ namespace Service.Repositories
             return isInRole;
         }
 
+        public async Task<User> FindByIdAsync(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+            return user;
+        }
+
+        public async Task<IdentityResult> AddToRoleAsync(User user, string roleName)
+        {
+            var result = await _userManager.AddToRoleAsync(user, roleName);
+            return result;
+        }
+
+        public async Task<IdentityResult> RemoveFromRoleAsync(User user, string roleName)
+        {
+            var result = await _userManager.RemoveFromRoleAsync(user, roleName);
+            return result;
+        }
     }
 }

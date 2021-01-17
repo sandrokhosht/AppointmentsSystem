@@ -105,7 +105,7 @@ namespace AppointmentsSystem.Controllers
         public async Task<IActionResult> EditRole(string id)
         {
             // Find the role by Role ID
-            var role = await _roleOperation.FindRoleByIdAsync(id);
+            var role = await _roleOperation.GetRoleByIdAsync(id);
 
             if (role == null)
             {
@@ -140,7 +140,7 @@ namespace AppointmentsSystem.Controllers
         [HttpPost]
         public async Task<IActionResult> EditRole(RoleCUVM model)
         {
-            var role = await _roleOperation.FindRoleByIdAsync(model.Role.Id);
+            var role = await _roleOperation.GetRoleByIdAsync(model.Role.Id);
 
             if (role == null)
             {
@@ -165,6 +165,90 @@ namespace AppointmentsSystem.Controllers
 
                 return View(model);
             }
+        }
+        [HttpGet]
+        public async Task<IActionResult> EditUsersInRole(string roleId)
+        {
+            ViewBag.roleId = roleId;
+
+            var role = await _roleOperation.GetRoleByIdAsync(roleId);
+
+            if (role == null)
+            {
+                ViewBag.ErrorMessage = $"Role with Id = {roleId} cannot be found";
+                return View("NotFound");
+            }
+
+            var model = new List<UserRoleVM>();
+
+            foreach (var user in _userOperation.GetAll()) // add .tolist if needed
+            {
+                var userRoleViewModel = new UserRoleVM
+                {
+                    UserId = user.Id,
+                    UserName = user.UserName
+                };
+
+                if (await _userOperation.IsUserInRoleAsync(user,role.Name))
+                {
+                    userRoleViewModel.IsSelected = true;
+                }
+                else
+                {
+                    userRoleViewModel.IsSelected = false;
+                }
+
+                model.Add(userRoleViewModel);
+            }
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditUsersInRole(List<UserRoleVM> model, string roleId)
+        {
+
+            var role = await _roleOperation.GetRoleByIdAsync(roleId);
+
+            if (role == null)
+            {
+                ViewBag.ErrorMessage = $"Role with Id = {roleId} cannot be found";
+                return View("NotFound");
+            }
+
+            for (int i = 0; i < model.Count; i++)
+            {
+                var userModel = new UserCUVM
+                {
+                    User = await _userOperation.GetUserByIdAsync(model[i].UserId)
+                };
+                //var user = await _userOperation.GetUserByIdAsync(model[i].UserId);
+
+                IdentityResult result = null;
+
+                if (model[i].IsSelected && !(await _userOperation.IsUserInRoleAsync(userModel.User, role.Name)))
+                {
+                    result = await _userOperation.AddUserToRoleAsync(userModel.User, role.Name);
+                }
+                else if (!model[i].IsSelected && await _userOperation.IsUserInRoleAsync(userModel.User, role.Name))
+                {
+                    result = await _userOperation.RemoveUserFromRoleAsync(userModel.User, role.Name);
+                }
+                else
+                {
+                    continue;
+                }
+
+                if (result.Succeeded)
+                {
+                    if (i < (model.Count - 1))
+                        continue;
+                    else
+                        return RedirectToAction("EditRole", new { Id = roleId });
+                }
+            }
+
+            return RedirectToAction("EditRole", new { Id = roleId });
         }
     }
 }

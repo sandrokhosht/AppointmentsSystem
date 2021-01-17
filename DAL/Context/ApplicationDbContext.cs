@@ -43,6 +43,10 @@ namespace DAL.Context
                 .Property(a => a.PhoneNumber)
                 .HasMaxLength(20)
                 .IsRequired();
+
+            modelBuilder.Entity<User>()
+                .Property(a => a.Id)
+                .ValueGeneratedOnAdd();
         }
     }
 }

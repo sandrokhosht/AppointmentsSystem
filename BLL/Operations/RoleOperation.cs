@@ -36,7 +36,7 @@ namespace BLL.Operations
             return result;
         }
 
-        public async Task<RoleCUDTO> FindRoleByIdAsync(string id)
+        public async Task<RoleCUDTO> GetRoleByIdAsync(string id)
         {
             var role = await _uow.Role.FindByIdAsync(id);
             var model = _mapper.Map<RoleCUDTO>(role);
