@@ -59,5 +59,10 @@ namespace Service.Repositories
             return result;
         }
 
+        public async Task<IdentityResult> UpdateAsync(User user)
+        {
+            var result = await _userManager.UpdateAsync(user);
+            return result;
+        }
     }
 }

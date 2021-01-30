@@ -4,14 +4,16 @@ using DAL.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DAL.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class AppointmentDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210126180614_SeedRoles")]
+    partial class SeedRoles
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -156,24 +158,10 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "cca3ffae-fb0e-44b6-86ad-601ae20d241a",
-                            ConcurrencyStamp = "71fd95df-7947-45de-b350-1cf4163ecf0f",
+                            Id = "e9775e4c-7775-4002-acec-45105c760db6",
+                            ConcurrencyStamp = "1616fc14-c8dd-4a3c-a22b-3c17a6d81fc7",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
-                        },
-                        new
-                        {
-                            Id = "54b1f0f6-2302-486c-8549-83faa90cc1de",
-                            ConcurrencyStamp = "92b2d5d3-00e9-468a-940b-088aee3fb68f",
-                            Name = "Manager",
-                            NormalizedName = "MANAGER"
-                        },
-                        new
-                        {
-                            Id = "fa07f18e-3826-4456-b6ff-8015d10ffd80",
-                            ConcurrencyStamp = "9f91dd1d-f764-4516-a5f2-67c77ae8cd7a",
-                            Name = "Doctor",
-                            NormalizedName = "DOCTOR"
                         });
                 });
 

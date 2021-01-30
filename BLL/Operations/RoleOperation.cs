@@ -56,7 +56,7 @@ namespace BLL.Operations
             var role = await _uow.Role.FindByIdAsync(model.Id);
             // changing model's name by provided one from model
             role.Name = model.Name;
-                                                                                                //   var role = _mapper.Map<IdentityRole>(model); **Tracking error**
+            //   var role = _mapper.Map<IdentityRole>(model); **Tracking error**
             // Updates context itself , no need to call _uow.Commit()
             var result = await _uow.Role.UpdateAsync(role);
             // Returns result of above method

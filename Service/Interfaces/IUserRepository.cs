@@ -22,5 +22,7 @@ namespace Service.Interfaces
 
         public Task<IdentityResult> RemoveFromRoleAsync(User user, string roleName);
 
+        public Task<IdentityResult> UpdateAsync(User user);
+
     }
 }

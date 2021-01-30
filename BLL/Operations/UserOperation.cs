@@ -76,5 +76,17 @@ namespace BLL.Operations
             }
             return result;
         }
+
+        public async Task<IdentityResult> UpdateRoleAsync(UserCUDTO model)
+        {
+            var activeUser = await _uow.User.FindByIdAsync(model.Id);
+            activeUser.FirstName = model.FirstName;
+            activeUser.LastName = model.LastName;
+            activeUser.Email = model.Email;
+            activeUser.UserName = model.Email;
+            var result = await _uow.User.UpdateAsync(activeUser);
+
+            return result;
+        }
     }
 }

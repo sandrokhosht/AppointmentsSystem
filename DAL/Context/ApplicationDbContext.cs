@@ -48,8 +48,26 @@ namespace DAL.Context
             modelBuilder.Entity<User>()
                 .Property(a => a.Id)
                 .ValueGeneratedOnAdd();
-                
-                
+
+            modelBuilder.Entity<IdentityRole>()
+                .HasData(new List<IdentityRole>
+                {
+                    new IdentityRole
+                    {
+                        Name = "Admin",
+                        NormalizedName = "ADMIN"
+                    },
+                    new IdentityRole
+                    {
+                        Name = "Manager",
+                        NormalizedName = "MANAGER"
+                    },
+                    new IdentityRole
+                    {
+                        Name = "Doctor",
+                        NormalizedName = "DOCTOR"
+                    }
+                });
         }
     }
 }

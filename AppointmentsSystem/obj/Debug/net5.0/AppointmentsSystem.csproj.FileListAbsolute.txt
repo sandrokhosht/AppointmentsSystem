@@ -164,3 +164,4 @@ C:\Users\Sandro\source\repos\AppointmentsSystem\AppointmentsSystem\obj\Debug\net
 C:\Users\Sandro\source\repos\AppointmentsSystem\AppointmentsSystem\obj\Debug\net5.0\Razor\Views\Admin\RoleList.cshtml.g.cs
 C:\Users\Sandro\source\repos\AppointmentsSystem\AppointmentsSystem\obj\Debug\net5.0\Razor\Views\Admin\EditRole.cshtml.g.cs
 C:\Users\Sandro\source\repos\AppointmentsSystem\AppointmentsSystem\obj\Debug\net5.0\Razor\Views\Admin\EditUsersInRole.cshtml.g.cs
+C:\Users\Sandro\source\repos\AppointmentsSystem\AppointmentsSystem\obj\Debug\net5.0\Razor\Views\Admin\EditUser.cshtml.g.cs

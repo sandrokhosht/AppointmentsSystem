@@ -23,5 +23,7 @@ namespace BLL.Interfaces
 
         public Task<IdentityResult> RemoveUserFromRoleAsync(UserCUDTO model, string roleName);
 
+        public Task<IdentityResult> UpdateRoleAsync(UserCUDTO model);
+
     }
 }

@@ -66,6 +66,43 @@ namespace AppointmentsSystem.Controllers
             return View(model);
         }
 
+        public async Task<IActionResult> EditUser(string id)
+        {
+            var user = new UserCUVM
+            {
+                User = await _userOperation.GetUserByIdAsync(id)
+            };
+
+            if (user == null)
+            {
+                ViewBag.ErrorMessage = $"User with Id = {id} cannot be found";
+                return View("NotFound");
+            }
+            return View(user);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditUser(UserCUVM model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _userOperation.UpdateRoleAsync(model.User);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    foreach (IdentityError error in result.Errors)
+                    {
+                        ModelState.AddModelError("", error.Description);
+                    }
+                }
+            }
+            return View(model);
+        }
+
+
         public IActionResult CreateRole()
         {
             return View();
